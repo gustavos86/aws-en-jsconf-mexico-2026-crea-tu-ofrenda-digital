@@ -1,0 +1,33 @@
+name: Deploy website to AWS S3
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  deploy:
+    name: Deploy website
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v6
+        with:
+          role-to-assume: arn:aws:iam::623738411560:role/GitHubActions-S3Deployment
+          aws-region: us-west-2
+
+      - name: Synchronize website with S3
+        run: |
+          aws s3 sync . s3://YOUR_BUCKET_NAME/ \
+            --delete \
+            --exclude ".git/*" \
+            --exclude ".github/*" \
+            --exclude "README.md"
