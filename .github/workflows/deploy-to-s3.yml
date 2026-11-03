@@ -26,7 +26,7 @@ jobs:
 
       - name: Synchronize website with S3
         run: |
-          aws s3 sync . s3://YOUR_BUCKET_NAME/ \
+          aws s3 sync . s3://ofrenda-digital-623738411560-us-west-2-an/ \
             --delete \
             --exclude ".git/*" \
             --exclude ".github/*" \
