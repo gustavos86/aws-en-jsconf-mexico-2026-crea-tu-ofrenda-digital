@@ -109,11 +109,9 @@ body {
 
 @media (max-width: 1024px) {
   .selector-idioma {
-    top: auto;
-    right: auto;
-    bottom: max(1rem, env(safe-area-inset-bottom));
-    left: 50%;
-    transform: translateX(-50%);
+    position: static;
+    justify-content: center;
+    margin: 0 auto max(1rem, env(safe-area-inset-bottom));
   }
 }
 
