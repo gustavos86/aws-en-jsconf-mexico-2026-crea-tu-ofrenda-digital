@@ -107,6 +107,16 @@ body {
   font-size: 0.9rem;
 }
 
+@media (max-width: 1024px) {
+  .selector-idioma {
+    top: auto;
+    right: auto;
+    bottom: max(1rem, env(safe-area-inset-bottom));
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
 .opcion-idioma {
   padding: 0.25rem 0;
   border: 0;
